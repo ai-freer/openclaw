@@ -79,3 +79,38 @@ Delete
 - `obsidian-cli delete "path/note"`
 
 Prefer direct edits when appropriate: open the `.md` file and change it; Obsidian will pick it up.
+
+---
+
+## Daniel Journal Procedures
+
+When working with the **daniel-journal** vault (`~/.openclaw/workspace/obsidian/daniel-journal/`), follow the domain-specific procedures below. These complement the general Obsidian operations above.
+
+⚠️ **Source of truth**: vault-internal rules in `99-agent/` take precedence. If any conflict exists between this skill and `99-agent/AGENTS.md`, `AGENTS.md` wins.
+
+### Quick Reference
+
+| Procedure | Trigger | Target |
+|-----------|---------|--------|
+| [voice-journal](procedures/voice-journal.md) | Daniel dictates a journal entry | `Journal/YYYY-MM-DD.md` |
+| [article-archive](procedures/article-archive.md) | Daniel sends a link/article to save | `01-raw-articles/<source>/<slug>.md` |
+
+### Shared Iron Rules (both procedures)
+
+1. `git pull --ff-only` before any write — abort on non-ff
+2. `git add <exact-files>` only — **never `git add .`**
+3. Commit format: `assistant(<area>): <summary>`
+4. Push failure → stop, save patch to `04-logs/conflicts/`, notify Daniel
+5. Log every action to `04-logs/assistant-runs/YYYY-MM-DD.md`
+6. File names: **English kebab-case only**, no Chinese in filenames
+7. Ghostwriting ≠ rewriting — never alter existing content without explicit instruction
+
+### Domain-Specific Documents
+
+| File | Purpose |
+|------|---------|
+| `99-agent/AGENTS.md` | Permissions matrix, red lines, authorship rules (highest authority) |
+| `99-agent/WIKI_WORKFLOW_SOP.md` | Daily execution manual (pre-flight, commit conventions, templates) |
+| `99-agent/LEGACY_SPLIT_PLAYBOOK.md` | Legacy snapshot split procedure |
+
+→ Read the full procedures for detailed step-by-step execution.
